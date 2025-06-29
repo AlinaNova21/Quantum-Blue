@@ -1,0 +1,57 @@
+- type: entity
+  abstract: true
+  parent: BaseWall
+  id: QBBaseWall
+  name: Wall
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    drawdepth: Mobs
+  - type: SpriteFade
+  - type: PlacementReplacement
+    key : walls
+  - type: IconSmooth
+    key: QBWall
+    base: steel
+  - type: Icon
+    state: full
+
+
+- type: entity
+  id: QBBaseWallFrame
+  parent: BaseStructureDynamic
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+    - type: Transform
+      anchored: true
+      noRot: false
+    - type: Physics
+      bodyType: Static
+    - type: PlacementReplacement
+      key: walls
+    - type: Sprite
+      drawdepth: Mobs
+      snapCardinals: true
+    - type: SpriteFade
+
+# QB: This may be redundant, commenting out to check
+#    - type: Fixtures
+#      fixtures:
+#          fix1:
+#            shape:
+#              !type:PhysShapeAabb
+#              bounds: "-0.45,-0.45,0.45,0.45"
+#            density: 60
+#            mask:
+#            - MachineMask
+#            layer:
+#            - GlassAirlockLayer

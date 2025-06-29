@@ -1,0 +1,58 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Custom art by MattFright",
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "frame"
+        },
+        {
+            "name": "steel0",
+            "directions": 4
+        },
+        {
+            "name": "steel1",
+            "directions": 4
+        },
+        {
+            "name": "steel2",
+            "directions": 4
+        },
+        {
+            "name": "steel3",
+            "directions": 4
+        },
+        {
+            "name": "steel4",
+            "directions": 4
+        },
+        {
+            "name": "steel5",
+            "directions": 4
+        },
+        {
+            "name": "steel6",
+            "directions": 4
+        },
+        {
+            "name": "steel7",
+            "directions": 4
+        },
+        {
+            "name": "step1"
+        },
+        {
+            "name": "step2"
+        },
+        {
+            "name": "step3"
+        }
+    ]
+}

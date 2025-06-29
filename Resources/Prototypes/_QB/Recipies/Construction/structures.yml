@@ -1,0 +1,32 @@
+- type: construction
+  id: QBSteelWall
+  graph: QBSteelWall
+  startNode: start
+  targetNode: QBWallSteel
+  category: construction-category-structures
+  icon:
+    sprite: _QB/Structures/Walls/steel.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+
+- type: construction
+  id: QBSteelWallFrame
+  graph: QBSteelWall
+  startNode: start
+  targetNode: QBWallFrameSteel
+  category: construction-category-structures
+  icon:
+    sprite: _QB/Structures/Walls/steel.rsi
+    state: frame
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

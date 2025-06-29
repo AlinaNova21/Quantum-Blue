@@ -1,0 +1,95 @@
+- type: entity
+  id: QBSteelWall
+  name: Steel Wall
+  parent: QBBaseWall
+  components:
+  - type: Sprite
+    sprite: _QB/Structures/Walls/steel.rsi
+  - type: Icon
+    sprite: _QB/Structures/Walls/steel.rsi
+  - type: IconSmooth
+    base: steel
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: InteractionOutline
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 900
+      behaviors: #excess damage, don't spawn entities.
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 800
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:ChangeConstructionNodeBehavior
+        node: QBWallFrameSteel
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Construction
+    graph: QBSteelWall
+    node: QBWallSteel
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.QBSteelWallVisuals.DeconstructionStage:
+        QBWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: step1, visible: true }
+          1: { state: step2, visible: true }
+          2: { state: step3, visible: true }
+
+
+
+
+- type: entity
+  id: QBSteelWallFrame
+  name: Steel Frame
+  parent: QBBaseWallFrame
+  components:
+    - type: Sprite
+      sprite: _QB/Structures/Walls/steel.rsi
+      state: frame
+    - type: Icon
+      sprite: _QB/Structures/Walls/steel.rsi
+      state: frame
+    - type: Construction
+      graph: QBSteelWall
+      node: QBWallFrameSteel
+    - type: InteractionOutline
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: StructuralMetallic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors: #excess damage, don't spawn entities.
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 1
+              max: 1
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
