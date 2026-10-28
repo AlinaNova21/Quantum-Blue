@@ -126,3 +126,15 @@
       amount: 2
   - type: ExplosionResistance
     damageCoefficient: 0
+  - type: Tag
+    tags: # drop WhitelistChameleon so the admin bag isn't itself a chameleon disguise option
+    - Backpack
+  - type: ChameleonClothing
+    slot: [back]
+    default: ClothingBackpackSatchelHolding
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
